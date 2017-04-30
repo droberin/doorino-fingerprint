@@ -31,3 +31,6 @@
 # Debug files
 *.dSYM/
 *.su
+
+# Emacs/Joe's editor backup files
+*~
