@@ -1,2 +1,2 @@
 # doorino-fingerprint
-Rely controlled through a fingerprint reader into Arduino Nano 
+Relay controlled through a fingerprint reader using an Arduino Nano
