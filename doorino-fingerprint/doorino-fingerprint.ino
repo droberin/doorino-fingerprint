@@ -1,6 +1,6 @@
 /*************************************************** 
 
-  Example modified for Arduino Nano with a  rely on pin #6
+  Example modified for Arduino Nano with a relay on pin #12
   
   This is an example sketch for our optical Fingerprint sensor
 
