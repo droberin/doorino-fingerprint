@@ -18,6 +18,8 @@
  ****************************************************/
 
 #define RELAY1 12
+#define RELAY_OFF LOW
+#define RELAY_ON HIGH
 
 #include <Adafruit_Fingerprint.h>
 #include <SoftwareSerial.h>
@@ -38,7 +40,7 @@ Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 void setup()
 {
   pinMode(RELAY1, OUTPUT);
-  digitalWrite(RELAY1, HIGH);
+  digitalWrite(RELAY1, RELAY_OFF);
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
 
@@ -144,13 +146,15 @@ int getFingerprintIDez() {
   Serial.print("Found ID #"); Serial.print(finger.fingerID);
   Serial.print(" with confidence of "); Serial.println(finger.confidence);
   if (finger.confidence > 70) {
-    digitalWrite(RELAY1, LOW);
+
+    digitalWrite(RELAY1, RELAY_ON);
+
     Serial.println("Opening door for 4 seconds");
     digitalWrite(LED_BUILTIN, HIGH);
     delay(4000);
-    digitalWrite(RELAY1, HIGH);
+    digitalWrite(RELAY1, RELAY_OFF);
     digitalWrite(LED_BUILTIN, LOW);
-    Serial.print("Stop that door, mate");
+    Serial.println("Stop that door, mate");
   }
   return finger.fingerID;
 }
